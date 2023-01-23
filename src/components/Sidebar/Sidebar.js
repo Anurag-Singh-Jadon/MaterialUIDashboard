@@ -10,7 +10,10 @@ import {
   LibraryBooks as LibraryIcon,
   HelpOutline as FAQIcon,
   ArrowBack as ArrowBackIcon,
-  Person
+  Language,
+  Person,
+  Event,
+  LiveHelp
 } from "@material-ui/icons";
 import { useTheme } from "@material-ui/styles";
 import { withRouter } from "react-router-dom";
@@ -31,14 +34,14 @@ import {
 } from "../../context/LayoutContext";
 
 const structure = [
-  { id: 0, label: "Language Management", link: "/app/dashboard", icon: <Person /> },
+  { id: 0, label: "Language Management", link: "/app/dashboard", icon: <Language/> },
   {
     id: 1,
     label: "Event Management",
     link: "/app/typography",
-    icon: <Person />,
+    icon: <Event />,
   },
-  { id: 2, label: "Question Management", link: "/app/tables", icon: <Person /> },
+  { id: 2, label: "Question Management", link: "/app/tables", icon: <LiveHelp/> },
   {
     id: 3,
     label: "Admin Management",

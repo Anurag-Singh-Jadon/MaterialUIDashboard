@@ -247,41 +247,41 @@ const Header = ({ classes, isSidebarOpened, toggleSidebar, ...props }) => (
       >
         <div className={classes.profileMenuUser}>
           <Typography variant="h4" weight="medium">
-            John Smith
+            Admin
           </Typography>
-          <Typography
+          {/* <Typography
             className={classes.profileMenuLink}
             component="a"
             color="primary"
             href="https://flatlogic.com"
           >
             Flalogic.com
-          </Typography>
+          </Typography> */}
         </div>
-        <MenuItem
+        {/* <MenuItem
           className={classNames(
             classes.profileMenuItem,
             classes.headerMenuItem
           )}
         >
           <AccountIcon className={classes.profileMenuIcon} /> Profile
-        </MenuItem>
-        <MenuItem
+        </MenuItem> */}
+        {/* <MenuItem
           className={classNames(
             classes.profileMenuItem,
             classes.headerMenuItem
           )}
         >
           <AccountIcon className={classes.profileMenuIcon} /> Tasks
-        </MenuItem>
-        <MenuItem
+        </MenuItem> */}
+        {/* <MenuItem
           className={classNames(
             classes.profileMenuItem,
             classes.headerMenuItem
           )}
         >
           <AccountIcon className={classes.profileMenuIcon} /> Messages
-        </MenuItem>
+        </MenuItem> */}
         <div className={classes.profileMenuUser}>
           <Typography
             className={classes.profileMenuLink}

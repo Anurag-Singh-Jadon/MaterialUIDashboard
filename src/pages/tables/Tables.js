@@ -4,11 +4,8 @@ import MUIDataTable from "mui-datatables";
 
 // components
 import PageTitle from "../../components/PageTitle";
-import Widget from "../../components/Widget";
-import Table from "../dashboard/components/Table/Table";
 
-// data
-import mock from "../dashboard/mock";
+
 
 const datatableData = [
   [1, "java.", "5 Years", "Active","..."],
@@ -28,9 +25,8 @@ export default function Tables() {
             title="Question Sets"
             data={datatableData}
             columns={[ "SL NO" ,"LANGUAGE NAME","EXPERIENCE", "STATUS", "STATE"]}
-            // options={{
-            //   filterType: "checkbox",
-            // }}
+            options={{download:false,print:false,viewColumns:false}}
+            
           />
         </Grid>
        

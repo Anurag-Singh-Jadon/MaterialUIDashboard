@@ -46,9 +46,7 @@ export default function NotificationsPage(props) {
             title="Admin"
             data={datatableData}
             columns={[ "ID" ,"ADMIN USER NAME","ADMIN EMAIL", "ADMIN PHONE", ]}
-            // options={{
-            //   filterType: "checkbox",
-            // }}
+            options={{download:false,print:false,viewColumns:false}}
           />
         </Grid>
        
