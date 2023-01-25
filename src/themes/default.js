@@ -109,7 +109,7 @@ export default {
     },
     MuiTouchRipple: {
       child: {
-        backgroundColor: "white",
+        backgroundColor: "black",
       },
     },
     MuiTableRow: {

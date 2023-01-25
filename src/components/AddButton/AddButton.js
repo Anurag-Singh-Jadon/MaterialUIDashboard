@@ -1,18 +1,14 @@
 import React from "react";
-import {
- 
-  Typography,
-  Box
-} from "@material-ui/core";
+
 import Tooltip from "@material-ui/core/Tooltip";
 import IconButton from "@material-ui/core/IconButton";
 import AddIcon from "@material-ui/icons/Add";
-const AddRow = (props) => {
+const AddButton = (props) => {
    
   return (
  
    <>
-        <Tooltip title={"custom icon"}>
+        <Tooltip title={"custom icon"} style={{background:"#536DFE"}}>
           <IconButton  onClick={props.handleClick}>
             <AddIcon  />
           </IconButton>
@@ -22,4 +18,4 @@ const AddRow = (props) => {
   )
 };
 
-export default AddRow;
+export default AddButton;
