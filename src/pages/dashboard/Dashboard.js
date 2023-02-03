@@ -4,13 +4,16 @@ import {
   Modal,
   Paper,
   TextField,
- 
   Select,
   MenuItem,
-  Box
+  Box,
 } from "@material-ui/core";
 
+import Tooltip from "@material-ui/core/Tooltip";
+import IconButton from "@material-ui/core/IconButton";
 
+import EditIcon from "@material-ui/icons/Edit";
+import DeleteIcon from "@material-ui/icons/Delete";
 // components
 
 import PageTitle from "../../components/PageTitle";
@@ -18,6 +21,7 @@ import PageTitle from "../../components/PageTitle";
 import MUIDataTable from "mui-datatables";
 //import AddRow from "../AddRow/AddRow";
 import AddButton from "../../components/AddButton/AddButton";
+import { blue } from "@material-ui/core/colors";
 
 // components
 
@@ -34,10 +38,7 @@ const datatableData = [
   [10, "C#", "js", "active", "Kolkata"],
 ];
 
-
-
 export default function Dashboard(props) {
- 
   const [course, setCourse] = useState("");
   const [open, setOpen] = useState(false);
   const updateMenuValue = (e, val) => {
@@ -59,6 +60,29 @@ export default function Dashboard(props) {
               "LANGUAGE EXTENSION",
               "LANGUAGE STATUS",
               "STATE",
+
+              {
+                name: "Action",
+                options: {
+                  filter: true,
+                  sort: false,
+                  empty: true,
+                  alignItems: "center",
+                  customBodyRender: (value, tableMeta, updateValue) => {
+                    return (
+                      <>
+                        <IconButton>
+                          <EditIcon />
+                        </IconButton>
+                        <IconButton>
+                          <DeleteIcon />
+                        </IconButton>
+
+                      </>
+                    );
+                  },
+                },
+              },
             ]}
             options={{
               download: false,
@@ -79,7 +103,6 @@ export default function Dashboard(props) {
               justifyContent: "center",
             }}
           >
-            
             <Paper
               elevation={10}
               style={{
@@ -115,15 +138,22 @@ export default function Dashboard(props) {
                   <MenuItem value={5}>JS</MenuItem>
                 </Select>
               </Grid>
-              <Box style={{marginTop:200,display:'flex',flexDirection:'row',justifyContent:'space-around'}} >
-                <Box onClick={() => setOpen(false)} style={{cursor:'pointer'}}>
-                 Cancel
+              <Box
+                style={{
+                  marginTop: 200,
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-around",
+                }}
+              >
+                <Box
+                  onClick={() => setOpen(false)}
+                  style={{ cursor: "pointer" }}
+                >
+                  Cancel
                 </Box>
-                <Box style={{marginLeft: 120}}>
-               Create Language
-                </Box>
-                
-              </Box>  
+                <Box style={{ marginLeft: 120 }}>Create Language</Box>
+              </Box>
               {/* </Grid> */}
             </Paper>
           </Modal>

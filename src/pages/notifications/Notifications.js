@@ -10,7 +10,10 @@ import {
   Box
 } from "@material-ui/core";
 
+import IconButton from "@material-ui/core/IconButton";
 
+import EditIcon from "@material-ui/icons/Edit";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 import MUIDataTable from "mui-datatables";
 // styles
@@ -47,7 +50,28 @@ export default function NotificationsPage(props) {
           <MUIDataTable
             title="Admin"
             data={datatableData}
-            columns={[ "ID" ,"ADMIN USER NAME","ADMIN EMAIL", "ADMIN PHONE", ]}
+            columns={[ "ID" ,"ADMIN USER NAME","ADMIN EMAIL", "ADMIN PHONE",
+            {
+              name: "Action",
+              options: {
+                filter: true,
+                sort: false,
+                empty: true,
+                customBodyRender: (value, tableMeta, updateValue) => {
+                  return (
+                    <>
+                    <IconButton>
+                      <EditIcon />
+                    </IconButton>
+                    <IconButton>
+                      <DeleteIcon />
+                    </IconButton>
+
+                  </>
+                  );
+                }
+              }
+            }, ]}
             options={{
               download: false,
               print: false,

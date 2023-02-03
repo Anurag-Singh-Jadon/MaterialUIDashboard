@@ -1,15 +1,18 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import {
   Grid,
   Modal,
   Paper,
   TextField,
- 
   Select,
   MenuItem,
-  Box
+  Box,
 } from "@material-ui/core";
 import AddButton from "../../components/AddButton/AddButton";
+import IconButton from "@material-ui/core/IconButton";
+
+import EditIcon from "@material-ui/icons/Edit";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 // components
 import PageTitle from "../../components/PageTitle";
@@ -119,10 +122,35 @@ export default function TypographyPage() {
       <PageTitle title1="Event List" title2="Event List" />
       <Grid container spacing={4}>
         <Grid item xs={12}>
-        <MUIDataTable
+          <MUIDataTable
             title="Admin"
             data={datatableData}
-            columns={[ "ID" ,"ADMIN USER NAME","ADMIN EMAIL", "ADMIN PHONE", ]}
+            columns={[
+              "ID",
+              "ADMIN USER NAME",
+              "ADMIN EMAIL",
+              "ADMIN PHONE",
+              {
+                name: "Action",
+                options: {
+                  filter: true,
+                  sort: false,
+                  empty: true,
+                  customBodyRender: (value, tableMeta, updateValue) => {
+                    return (
+                      <>
+                        <IconButton>
+                          <EditIcon />
+                        </IconButton>
+                        <IconButton>
+                          <DeleteIcon />
+                        </IconButton>
+                      </>
+                    );
+                  },
+                },
+              },
+            ]}
             options={{
               download: false,
               print: false,
@@ -142,7 +170,6 @@ export default function TypographyPage() {
               justifyContent: "center",
             }}
           >
-            
             <Paper
               elevation={10}
               style={{
@@ -178,15 +205,22 @@ export default function TypographyPage() {
                   <MenuItem value={5}>JS</MenuItem>
                 </Select>
               </Grid>
-              <Box style={{marginTop:200,display:'flex',flexDirection:'row',justifyContent:'space-around'}} >
-                <Box onClick={() => setOpen(false)} style={{cursor:'pointer'}}>
-                 Cancel
+              <Box
+                style={{
+                  marginTop: 200,
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-around",
+                }}
+              >
+                <Box
+                  onClick={() => setOpen(false)}
+                  style={{ cursor: "pointer" }}
+                >
+                  Cancel
                 </Box>
-                <Box style={{marginLeft: 120}}>
-               Create Language
-                </Box>
-                
-              </Box>  
+                <Box style={{ marginLeft: 120 }}>Create Language</Box>
+              </Box>
               {/* </Grid> */}
             </Paper>
           </Modal>
